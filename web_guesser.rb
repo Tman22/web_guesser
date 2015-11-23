@@ -22,7 +22,11 @@ end
 get '/' do
   # throw params.inspect
   guess = params["guess"]
+  cheat = params["cheat"]
   message = guesses(guess)
+  if cheat
+    message = message + " The secret number is #{Number}!!!"
+  end
   erb :index, :locals => {:number => Number, :message => message}
 
 end
